@@ -1,0 +1,282 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+/* Top-Level Layout */
+.container {
+  display: grid;
+  grid-template: minmax(150px, 1fr) minmax(750px, 5fr) / minmax(200px, 1fr) minmax(
+      800px,
+      4fr
+    );
+  min-height: 100vh;
+}
+
+.header {
+  grid-area: 1 / 2 / 2 / -1;
+}
+
+.sidebar {
+  grid-area: 1 / 1 / -1 / 2;
+}
+
+.main {
+  grid-area: 2 / 2 / -1 / -1;
+}
+
+/* 1st-Level Nested Layouts */
+
+.header {
+  position: relative;
+  background-color: white;
+  color: black;
+  padding: 15px 30px;
+  box-shadow: 0em 0.3em 0.3em -0.3em rgb(70, 69, 69);
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.sidebar {
+  background-color: rgb(41, 145, 220);
+  color: white;
+  font-size: 1.5rem;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.main {
+  flex: 1;
+  background-color: rgb(243, 244, 245);
+  padding: 15px;
+
+  display: grid;
+  grid-template:
+    minmax(300px, min-content) minmax(300px, 1fr) / minmax(500px, 5fr)
+    minmax(200px, 2fr);
+  gap: 1em;
+}
+
+.projects {
+  grid-area: 1 / 1 / -1 / 2;
+}
+
+.announcements {
+  grid-area: 1 / 2 / 2 / -1;
+}
+
+.trending {
+  grid-area: 2 / 2 / -1 / -1;
+}
+
+/* 2nd-Level Nested Layouts */
+
+.header-top,
+.header-bottom,
+.left-side,
+.right-side {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  min-height: 5em;
+  padding: 5px;
+}
+
+.header-top,
+.header-bottom {
+  gap: 2.5em;
+}
+
+.left-side,
+.right-side {
+  gap: 2em;
+}
+
+.right-side {
+  gap: 1em;
+}
+
+.header-top p {
+  font-size: 1.2rem;
+}
+
+.header-bottom h1 {
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+.header-bottom p {
+  margin-bottom: 10px;
+}
+
+.header-top .left-side {
+  flex: 1;
+}
+
+.header-bottom .right-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+.menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  line-height: 2em;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.logo {
+  display: flex;
+  gap: 1em;
+}
+
+.logo .icon-item {
+  max-height: 3em;
+  filter: invert(100%);
+}
+
+.logo span {
+  min-width: 1.8em;
+  display: flex;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 1em;
+}
+
+/* 3rd-Level Nested Layouts */
+
+.card-item {
+  background-color: white;
+  padding: 1em;
+  border-left-style: solid;
+  border-left-color: gold;
+  border-left-width: 1em;
+  min-height: 200px;
+  border-radius: 15px;
+  align-self: stretch;
+}
+
+.notifications,
+.friends {
+  background-color: white;
+  padding: 15px;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Element Styling */
+span {
+  min-width: 3em;
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  max-height: 4em;
+}
+
+input {
+  flex: 1;
+  background-color: rgb(215, 222, 227);
+  border-radius: 1.2em;
+  border-style: none;
+  min-height: 2.5em;
+}
+
+button {
+  background-color: rgb(29, 159, 220);
+  color: white;
+  padding: 0.5em 1em;
+  border-style: none;
+  border-radius: 1.2em;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.header-top .avatar {
+  max-height: 3em;
+}
+
+.icon-item {
+  max-height: 1.8em;
+}
+
+.sidebar span {
+  min-width: 1.2em;
+}
+
+.sidebar .icon-item {
+  max-height: 1.2em;
+  filter: invert(100%);
+}
+
+.no-item {
+  display: hidden;
+}
+
+.icons {
+  display: flex;
+  gap: 1em;
+  justify-content: flex-end;
+}
+
+.notification-item:not(.notification-item:first-of-type),
+.friend-item:not(.friend-item:first-of-type) {
+  border-top-style: solid;
+  border-top-color: rgb(190, 185, 185);
+  border-top-width: 0.1em;
+}
+
+.friend-item {
+  padding: 1em 0em;
+
+  display: flex;
+  gap: 1em;
+}
+
+.handle {
+  font-weight: 500;
+  margin: 0.5em;
+}
+
+.tagline {
+  color: grey;
+  margin: 0.5em;
+}
